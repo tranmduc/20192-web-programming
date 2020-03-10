@@ -6,8 +6,8 @@
          <br>
          <input type="text" name="Name">
          <br>
-         <input type="submit" value="Click to Submit">
-         <input type="reset" value="Erase and Restart">
+         <input type="SUBMIT" value="Click to Submit">
+         <input type="RESET" value="Erase and Restart">
      </form>
  </body>
 </html>
