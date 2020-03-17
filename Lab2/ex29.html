@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Exercise 2.9</title>
+  </head>
+  <body>
+    <form action="ex29.php" method="POST">
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" /><br />
+
+      <label for="class">Class: </label>
+      <input type="text" id="class" name="class" /><br />
+
+      <label for="univ">University: </label>
+      <input type="text" id="univ" name="univ" /><br /><br />
+
+      <label for="gender">Gender: </label><br />
+      <input type="radio" id="gender" name="gender" value="male" /> Male<br />
+      <input type="radio" id="gender" name="gender" value="female" />
+      Female<br />
+
+      <label for="hobbie">Hobbies: </label><br />
+      <input type="checkbox" id="hobbie1" name="hobbie[]" value="Candy" />
+      <label for="hobbie1"> I like candy</label><br />
+      <input type="checkbox" id="hobbie2" name="hobbie[]" value="Apple" />
+      <label for="hobbie2"> I like apple</label><br />
+      <input type="checkbox" id="hobbie3" name="hobbie[]" value="Snack" />
+      <label for="hobbie3"> I like snack</label><br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
