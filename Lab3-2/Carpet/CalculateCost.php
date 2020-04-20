@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 
 <head>
-    <meta charset="utf-8">
     <title>Carpet cost quote</title>
 </head>
 

@@ -1,4 +1,4 @@
-<html lang="en">
+<html>
 <head>
     <title>Form receive</title>
 </head>

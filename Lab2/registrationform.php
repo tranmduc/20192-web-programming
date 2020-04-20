@@ -1,6 +1,5 @@
 <html>
     <head>
-        <meta charset="UTF-8">
         <title>Registration Form</title>
     </head>
     <body>
