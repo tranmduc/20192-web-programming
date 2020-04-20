@@ -1,22 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Converter</title>
 </head>
 
 <body>
     <?php
-    function radToDeg($val)
-    {
-        return $val * 3.14;
-    }
-    function degToRad($val)
-    {
-        return $val / 3.14;
-    }
     if (array_key_exists('mode', $_GET)) {
         $mode = $_GET['mode'];
     } else {
@@ -29,9 +19,9 @@
     }
     if (is_numeric($val)) {
         if ($mode == 0) {
-            $result = radToDeg($val);
+            $result = radianToDegree($val);
         } else {
-            $result = degToRad($val);
+            $result = degreeToRadian($val);
         }
     } else {
         $result = '';
@@ -78,3 +68,13 @@
 </body>
 
 </html>
+
+<?php
+function radianToDegree($val){
+    return $val * 180/M_PI;    
+}
+
+function degreeToRadian($val){
+    return $val * M_PI/180;
+}
+?>

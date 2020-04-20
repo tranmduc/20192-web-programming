@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DateTimeFunction</title>
 </head>
 
@@ -18,70 +15,33 @@
         }
     }
 
-    function customeGetDate($date_string)
-    {
-        try {
-            if ($date_string == '') {
-                return NULL;
-            }
-            return date_create($date_string);
-        } catch (Exception $e) {
-            return NULL;
-        }
-    }
-
-    function getDayDiff($birthDay1, $birthDay2)
-    {
-        $diff = date_diff($birthDay1, $birthDay2);
-        return $diff->format("%R%a days");
-    }
-
-    function getYearDiff($birthDay1, $birthDay2)
-    {
-        $diff = date_diff($birthDay1, $birthDay2);
-        return $diff->format("%R%y years");
-    }
-
-    function getAge($date)
-    {
-        $diff = date_diff(date_create(), $date);
-        return $diff->format("%y");
-    }
-
-    function displayInfo($name, $date)
-    {
-        $date_string = date_format($date, "l, F j, Y");
-        $age = getAge($date);
-        echo "<br>$name: $date_string - $age years old";
-    }
-
-    $bd1 = customeGetDate($birthDay1);
-    $bd2 = customeGetDate($birthDay2);
+    $bd1 = myGetDate($birthDay1);
+    $bd2 = myGetDate($birthDay2);
     ?>
 
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="get">
+    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="get">
         <table>
             <tr>
-                <td>First Person's Name:</td>
+                <td>Name of first person:</td>
                 <td>
                     <input type="text" name="name1">
                 </td>
             </tr>
             <tr>
-                <td>First Person's BirthDay:</td>
+                <td>Birthday of first person:</td>
                 <td>
                     <input type="date" name="birthDay1">
                 </td>
             </tr>
 
             <tr>
-                <td>Second Person's Name:</td>
+                <td>Name of second person:</td>
                 <td>
                     <input type="text" name="name2">
                 </td>
             </tr>
             <tr>
-                <td>Second Person's BirthDay:</td>
+                <td>Birthday of second person:</td>
                 <td>
                     <input type="date" name="birthDay2">
 
@@ -97,10 +57,10 @@
 </body>
 <?php
 if ($name1 && $bd1 && $name2 && $bd2) {
-    displayInfo($name1, $bd1);
-    displayInfo($name2, $bd2);
-    $dayDiff = getDayDiff($bd1, $bd2);
-    $yearDiff = getYearDiff($bd1, $bd2);
+    displayResult($name1, $bd1);
+    displayResult($name2, $bd2);
+    $dayDiff = getDayDif($bd1, $bd2);
+    $yearDiff = getYearDif($bd1, $bd2);
     echo "<br>Different in days: $dayDiff";
     echo "<br>Different in years: $yearDiff";
 } else {
@@ -109,3 +69,37 @@ if ($name1 && $bd1 && $name2 && $bd2) {
 ?>
 
 </html>
+<?php
+function myGetDate($date_string){
+    try {
+        if ($date_string == '') {
+            return NULL;            
+        }
+        return date_create($date_string);        
+    } catch (Exception $e) {
+            return NULL;            
+    }       
+}
+
+function getDayDif($birthDay1, $birthDay2){
+    $diff = date_diff($birthDay1, $birthDay2);
+    return $diff->format("%R%a days");
+}
+
+function getYearDif($birthDay1, $birthDay2){
+    $diff = date_diff($birthDay1, $birthDay2);
+    return $diff->format("%R%y years");
+}
+
+function getAgeValue($date){
+    $diff = date_diff(date_create(), $date);
+    return $diff->format("%y");
+}
+
+function displayResult($name, $date){
+    $date_string = date_format($date, "l, F j, Y");
+    $age = getAgeValue($date);
+    echo "<br>$name: $date_string - $age years old";
+}
+
+?>
